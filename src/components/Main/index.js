@@ -1,39 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
 
 import Pokemon from '../Pokemon';
 import { Container, PokemonsContainer,Button } from './styles';
 
-const Main = () => {
-    
-    const [apiUrl, setApiUrl] = useState("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=20")
+const Main = (props) => {
 
-    const [pageApiUrl,setPageApiUrl] = useState({next:'', back:''})
+    const pokemons = props.listPokemons
 
-    const [pokemons, setPokemons] = useState([])
-    useEffect(()=>axios.get(apiUrl,).then(response => {
-        setPokemons(response.data.results)
-        setPageApiUrl({next : response.data.next, back: response.data.previous })
-    }),[apiUrl])
-    
-    const handleNext = () =>{
-        if(pageApiUrl.next != null){
-            setApiUrl(pageApiUrl.next)}
-    }
-    const handleBack = () =>{
-        if(pageApiUrl.back != null){
-            setApiUrl(pageApiUrl.back)}
-    }
     return ( 
         <Container>
-            <Button onClick={handleBack}>Back</Button>
+            <Button onClick={props.backPage}>Back</Button>
             <PokemonsContainer>
                 {pokemons.map((Poke)=>{
                     const {name} = Poke
                     return <Pokemon key={`k-${name}`}>{name}</Pokemon>
                 })}
             </PokemonsContainer>
-            <Button onClick={handleNext}>Next</Button>
+            <Button onClick={props.nextPage}>Next</Button>
         </Container>
      );
 }

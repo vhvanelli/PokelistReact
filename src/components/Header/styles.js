@@ -30,7 +30,7 @@ export const H1 = styled.h1`
     font-size: 4em;
     text-shadow: -3px 2px 0 #033570, 1px 1px 0 #F4F4F4;
     @media screen and (max-width:768px){
-        /* font-size: 2em; */
+        font-size: max(10vw, 2.4em);
     }
 `
 export const Button = styled.button`
@@ -38,7 +38,7 @@ export const Button = styled.button`
 
     @media screen and (max-width:768px){
     display: flex;
-    width: 60px;
+    width: max(9vw,13px);
     background-color: transparent;
     border: none;
     outline: none;
@@ -46,7 +46,7 @@ export const Button = styled.button`
     align-items: center;
         img{
             background-color: transparent;
-            width: 60px;
+            width: max(9vw,13px);
             transform: rotateZ(${props => props.action == 'back'?"180deg":"0deg"});
         }
     }
