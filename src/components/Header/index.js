@@ -1,11 +1,23 @@
 import React from 'react';
 
-import { HeaderStyle, H1 } from './styles';
+import { HeaderStyle, H1, P, Credits, Button, ContainerButtons } from './styles';
+import ArrowSvg from './arrow.svg'
 
-const Header = () => {
+const Header = (props) => {
     return ( 
         <HeaderStyle>
-            <H1>Pokelist</H1>
+            <Credits>
+            <P>Desenvolvido por <a href='https://www.linkedin.com/in/vhvanelli/' target='_blank' rel="noreferrer">Victor Hugo Faria</a></P>
+            </Credits>
+            <ContainerButtons>
+                <Button action={"back"}>
+                    <img src={ArrowSvg} alt="seta" />
+                </Button>
+                <H1>Pokelist</H1>
+                <Button action={"next"}>
+                    <img src={ArrowSvg} alt="seta" />
+                </Button>
+            </ContainerButtons>
         </HeaderStyle>
      );
 }

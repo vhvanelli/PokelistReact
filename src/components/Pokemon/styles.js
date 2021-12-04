@@ -10,7 +10,6 @@ export const PokemonStyle = styled.div`
     border-radius: 5px;
     margin-bottom: 7px;
     h3{
-        font-family: Arial, Helvetica, sans-serif;
         color: #222;
         font-size: 2em;
         text-transform: capitalize;
