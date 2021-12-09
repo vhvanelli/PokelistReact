@@ -47,7 +47,7 @@ export const Button = styled.button`
         img{
             background-color: transparent;
             width: max(9vw,13px);
-            transform: rotateZ(${props => props.action == 'back'?"180deg":"0deg"});
+            transform: rotateZ(${props => props.action === 'back'?"180deg":"0deg"});
         }
     }
 `
